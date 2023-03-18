@@ -15,13 +15,13 @@ import java.util.concurrent.Future;
 import java.util.Map;
 import java.util.HashMap;
 
-public class MsgPublisher {
+public class AWS_MSK_KafkaPublisher {
 	private Producer<String, String> producer;
 	private String topic = null;
 
 	private Gson gson = null;
 
-	MsgPublisher() {
+	AWS_MSK_KafkaPublisher() {
 		if(gson == null)
 			gson = new Gson();
 
@@ -110,7 +110,7 @@ public class MsgPublisher {
 
 	public static void main(String s[]) throws Exception {
 		System.out.println("[main] entered");
-		MsgPublisher msgPublisher = new MsgPublisher();
+		AWS_MSK_KafkaPublisher msgPublisher = new AWS_MSK_KafkaPublisher();
 
 		String message = "{\"PaymentDetails\":{\"recordId\":1001001,\"transactionType\":\"payment\",\"transactionTotalAmount\":110,\"transactionDateTime\":\"2023-03-15T12:33:21.463-07:00\",\"status\":\"SUCC\",\"paymentCard\":{\"paymentCardType\":\"VISA\",\"paymentCardExpirationDate\":\"2024-09\",\"paymentCardLastFour\":6785,\"paymentCardZipCode\":80239},\"policy\":{\"agmtNumber\":\"891426-22-1801-01\",\"productType\":\"Auto\"}}}";
 
